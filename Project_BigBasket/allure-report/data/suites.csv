@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","71969","test_brand_filter","tests","2026-05-22","passed","2026-05-22","","test_2_positive","",""
+"","35847","test_invalid_phone","tests","2026-05-22","passed","2026-05-22","","test_3_negative","",""
+"","171531","test_end_to_end","tests","2026-05-22","passed","2026-05-22","","test_1_end_to_end","",""
+"","93060","test_price_filter","tests","2026-05-22","passed","2026-05-22","","test_2_positive","",""
+"","56239","test_invalid_otp","tests","2026-05-22","passed","2026-05-22","","test_3_negative","",""
+"","70150","test_add_to_basket","tests","2026-05-22","passed","2026-05-22","","test_2_positive","",""
+"","78865","test_open_basket","tests","2026-05-22","passed","2026-05-22","","test_2_positive","",""

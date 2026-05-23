@@ -1,0 +1,142 @@
+2026-05-21 16:32:58,317 - INFO - Opening BigBasket Website
+2026-05-21 16:32:58,320 - INFO - ====== WebDriver manager ======
+2026-05-21 16:32:58,887 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:33:06,996 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:33:07,172 - INFO - Clicking Login Button
+2026-05-21 16:33:15,321 - INFO - Login Button Clicked Successfully
+2026-05-21 16:33:15,467 - INFO - Entering Mobile Number
+2026-05-21 16:33:21,596 - INFO - Mobile Number Entered Successfully
+2026-05-21 16:33:21,768 - INFO - Clicking Continue Button
+2026-05-21 16:33:54,849 - INFO - Login Successful
+2026-05-21 16:33:55,044 - INFO - Opening Pharmacy Page
+2026-05-21 16:34:01,727 - INFO - Pharmacy Page Opened Successfully
+2026-05-21 16:34:01,886 - INFO - Applying Brand Filter
+2026-05-21 16:34:11,917 - INFO - Brand Filter Applied Successfully
+2026-05-21 16:34:12,061 - INFO - Adding Product To Basket
+2026-05-21 16:34:22,093 - INFO - Product Added To Basket Successfully
+2026-05-21 16:34:22,262 - INFO - Opening Checkout Page
+2026-05-21 16:34:32,883 - INFO - Checkout Page Opened Successfully
+2026-05-21 16:34:33,015 - INFO - Proceeding To Payment Page
+2026-05-21 16:34:43,041 - INFO - Payment Page Opened Successfully
+2026-05-21 16:34:43,170 - INFO - End To End Flow Completed Successfully
+2026-05-21 16:35:35,629 - INFO - Opening BigBasket Website For Negative Testing
+2026-05-21 16:35:35,633 - INFO - ====== WebDriver manager ======
+2026-05-21 16:35:35,958 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:35:45,637 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:35:45,820 - INFO - Clicking Login Button
+2026-05-21 16:35:53,963 - INFO - Login Button Clicked Successfully
+2026-05-21 16:35:54,131 - INFO - Entering Valid Mobile Number
+2026-05-21 16:36:00,246 - INFO - Valid Mobile Number Entered Successfully
+2026-05-21 16:36:00,411 - INFO - Clicking Continue Button
+2026-05-21 16:36:02,447 - INFO - Waiting For OTP Screen
+2026-05-21 16:36:17,618 - INFO - Entering Wrong OTP
+2026-05-21 16:36:27,635 - INFO - OTP Boxes Found : 0
+2026-05-21 16:36:32,640 - INFO - Wrong OTP Entered Successfully
+2026-05-21 16:36:32,821 - INFO - Checking OTP Error Message
+2026-05-21 16:36:32,851 - INFO - Negative OTP Validation Successful
+2026-05-21 16:36:33,097 - INFO - Opening BigBasket Website For Negative Testing
+2026-05-21 16:36:33,097 - INFO - ====== WebDriver manager ======
+2026-05-21 16:36:33,349 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:36:40,266 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:36:40,434 - INFO - Clicking Login Button
+2026-05-21 16:36:48,591 - INFO - Login Button Clicked Successfully
+2026-05-21 16:36:48,748 - INFO - Entering Invalid Mobile Number
+2026-05-21 16:36:54,862 - INFO - Invalid Mobile Number Entered
+2026-05-21 16:36:55,029 - INFO - Clicking Continue Button
+2026-05-21 16:36:57,052 - INFO - Waiting For OTP Screen
+2026-05-21 16:37:12,234 - INFO - Checking Invalid Mobile Error Message
+2026-05-21 16:37:12,263 - INFO - Invalid Mobile Validation Successful
+2026-05-21 16:41:29,460 - INFO - Opening BigBasket Website
+2026-05-21 16:41:29,464 - INFO - ====== WebDriver manager ======
+2026-05-21 16:41:29,614 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:41:38,460 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:41:38,637 - INFO - Clicking Login Button
+2026-05-21 16:41:46,770 - INFO - Login Button Clicked Successfully
+2026-05-21 16:41:46,922 - INFO - Entering Mobile Number
+2026-05-21 16:41:53,023 - INFO - Mobile Number Entered Successfully
+2026-05-21 16:41:53,201 - INFO - Clicking Continue Button
+2026-05-21 16:42:26,284 - INFO - Login Successful
+2026-05-21 16:42:26,468 - INFO - Opening Pharmacy Page
+2026-05-21 16:42:35,366 - INFO - Pharmacy Page Opened Successfully
+2026-05-21 16:42:35,513 - INFO - Applying Brand Filter
+2026-05-21 16:42:45,653 - INFO - Brand Filter Applied Successfully
+2026-05-21 16:42:45,816 - INFO - Adding Product To Basket
+2026-05-21 16:42:55,883 - INFO - Product Added To Basket Successfully
+2026-05-21 16:42:56,032 - INFO - Opening Checkout Page
+2026-05-21 16:43:07,941 - INFO - Checkout Page Opened Successfully
+2026-05-21 16:43:08,115 - INFO - Proceeding To Payment Page
+2026-05-21 16:44:07,514 - INFO - Opening BigBasket Website For Negative Testing
+2026-05-21 16:44:07,517 - INFO - ====== WebDriver manager ======
+2026-05-21 16:44:07,860 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:44:15,233 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:44:15,402 - INFO - Clicking Login Button
+2026-05-21 16:44:23,548 - INFO - Login Button Clicked Successfully
+2026-05-21 16:44:23,696 - INFO - Entering Valid Mobile Number
+2026-05-21 16:44:29,803 - INFO - Valid Mobile Number Entered Successfully
+2026-05-21 16:44:29,983 - INFO - Clicking Continue Button
+2026-05-21 16:44:32,013 - INFO - Waiting For OTP Screen
+2026-05-21 16:44:47,205 - INFO - Entering Wrong OTP
+2026-05-21 16:44:57,222 - INFO - OTP Boxes Found : 0
+2026-05-21 16:45:02,227 - INFO - Wrong OTP Entered Successfully
+2026-05-21 16:45:02,420 - INFO - Checking OTP Error Message
+2026-05-21 16:45:02,452 - INFO - Negative OTP Validation Successful
+2026-05-21 16:45:02,708 - INFO - Opening BigBasket Website For Negative Testing
+2026-05-21 16:45:02,708 - INFO - ====== WebDriver manager ======
+2026-05-21 16:45:02,911 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:45:09,775 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:45:09,952 - INFO - Clicking Login Button
+2026-05-21 16:45:18,131 - INFO - Login Button Clicked Successfully
+2026-05-21 16:45:18,284 - INFO - Entering Invalid Mobile Number
+2026-05-21 16:45:24,402 - INFO - Invalid Mobile Number Entered
+2026-05-21 16:45:24,583 - INFO - Clicking Continue Button
+2026-05-21 16:45:26,597 - INFO - Waiting For OTP Screen
+2026-05-21 16:45:41,763 - INFO - Checking Invalid Mobile Error Message
+2026-05-21 16:45:41,793 - INFO - Invalid Mobile Validation Successful
+2026-05-21 16:48:23,429 - INFO - Opening BigBasket Website For Negative Testing
+2026-05-21 16:48:23,432 - INFO - ====== WebDriver manager ======
+2026-05-21 16:48:23,730 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:48:30,914 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:48:31,094 - INFO - Clicking Login Button
+2026-05-21 16:48:39,211 - INFO - Login Button Clicked Successfully
+2026-05-21 16:48:39,377 - INFO - Entering Valid Mobile Number
+2026-05-21 16:48:45,485 - INFO - Valid Mobile Number Entered Successfully
+2026-05-21 16:48:45,647 - INFO - Clicking Continue Button
+2026-05-21 16:48:47,682 - INFO - Waiting For OTP Screen
+2026-05-21 16:49:02,854 - INFO - Entering Wrong OTP
+2026-05-21 16:49:12,877 - INFO - OTP Boxes Found : 0
+2026-05-21 16:49:17,884 - INFO - Wrong OTP Entered Successfully
+2026-05-21 16:49:18,067 - INFO - Checking OTP Validation
+2026-05-21 16:49:23,880 - INFO - Negative OTP Validation Successful
+2026-05-21 16:49:24,140 - INFO - Opening BigBasket Website For Negative Testing
+2026-05-21 16:49:24,141 - INFO - ====== WebDriver manager ======
+2026-05-21 16:49:24,365 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:49:31,376 - INFO - BigBasket Website Opened Successfully
+2026-05-21 16:49:31,556 - INFO - Clicking Login Button
+2026-05-21 16:49:39,719 - INFO - Login Button Clicked Successfully
+2026-05-21 16:49:39,880 - INFO - Entering Invalid Mobile Number
+2026-05-21 16:49:45,998 - INFO - Invalid Mobile Number Entered
+2026-05-21 16:49:46,002 - INFO - Clicking Continue Button
+2026-05-21 16:54:20,474 - INFO - Opening BigBasket Website
+2026-05-21 16:54:20,477 - INFO - ====== WebDriver manager ======
+2026-05-21 16:54:20,545 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:54:29,839 - INFO - Website Opened Successfully
+2026-05-21 16:54:30,022 - INFO - Clicking Login Button
+2026-05-21 16:54:38,167 - INFO - Login Popup Opened Successfully
+2026-05-21 16:54:38,333 - INFO - Entering Valid Mobile Number
+2026-05-21 16:54:44,445 - INFO - Valid Mobile Number Entered
+2026-05-21 16:54:44,612 - INFO - Clicking Continue Button
+2026-05-21 16:55:01,649 - INFO - Continue Button Clicked
+2026-05-21 16:55:01,833 - INFO - Clicking Verify Continue With Invalid OTP
+2026-05-21 16:55:09,871 - INFO - Invalid OTP Validation Triggered
+2026-05-21 16:55:10,059 - INFO - Invalid OTP Validation Successful
+2026-05-21 16:55:10,309 - INFO - Opening BigBasket Website
+2026-05-21 16:55:10,310 - INFO - ====== WebDriver manager ======
+2026-05-21 16:55:10,605 - INFO - Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+2026-05-21 16:55:19,592 - INFO - Website Opened Successfully
+2026-05-21 16:55:19,776 - INFO - Clicking Login Button
+2026-05-21 16:55:27,892 - INFO - Login Popup Opened Successfully
+2026-05-21 16:55:28,086 - INFO - Entering Invalid Mobile Number
+2026-05-21 16:55:34,207 - INFO - Invalid Mobile Number Entered
+2026-05-21 16:55:34,389 - INFO - Clicking Continue Button
+2026-05-21 16:55:51,418 - INFO - Continue Button Clicked
+2026-05-21 16:55:51,607 - INFO - Invalid Mobile Validation Successful

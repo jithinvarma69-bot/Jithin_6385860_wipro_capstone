@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","61599","Positive Pharmacy Page Opening Successful","","2026-05-22","passed","2026-05-22","","","",""
+"","73851","Positive Brand Filter Successful","","2026-05-22","passed","2026-05-22","","","",""
+"","57990","Positive Login Successful","","2026-05-22","passed","2026-05-22","","","",""
+"","39699","Negative Invalid Mobile Number","","2026-05-22","passed","2026-05-22","","","",""
+"","71943","Positive Add Product To Basket Successful","","2026-05-22","passed","2026-05-22","","","",""
+"","49990","Negative Wrong OTP","","2026-05-22","passed","2026-05-22","","","",""
+"","103788","Complete BigBasket Flow","","2026-05-22","passed","2026-05-22","","","",""

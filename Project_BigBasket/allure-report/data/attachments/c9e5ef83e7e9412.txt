@@ -1,0 +1,43 @@
+Dettol brand selected
+Price filter failed: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001005a8c40 cxxbridge1$str$ptr + 3221216
+1   chromedriver                        0x00000001005a0b1c cxxbridge1$str$ptr + 3188156
+2   chromedriver                        0x00000001000638f4 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 75152
+3   chromedriver                        0x00000001000abff8 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 371860
+4   chromedriver                        0x00000001000eb6f4 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 631696
+5   chromedriver                        0x00000001000a19c0 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 329308
+6   chromedriver                        0x0000000100566b70 cxxbridge1$str$ptr + 2950672
+7   chromedriver                        0x000000010056a2c8 cxxbridge1$str$ptr + 2964840
+8   chromedriver                        0x000000010054b8a8 cxxbridge1$str$ptr + 2839368
+9   chromedriver                        0x000000010056ab48 cxxbridge1$str$ptr + 2967016
+10  chromedriver                        0x000000010053c3d4 cxxbridge1$str$ptr + 2776692
+11  chromedriver                        0x000000010058f7ac cxxbridge1$str$ptr + 3117644
+12  chromedriver                        0x000000010058f90c cxxbridge1$str$ptr + 3117996
+13  chromedriver                        0x00000001005a0774 cxxbridge1$str$ptr + 3187220
+14  libsystem_pthread.dylib             0x000000018d273c58 _pthread_start + 136
+15  libsystem_pthread.dylib             0x000000018d26ec1c thread_start + 8
+
+4 Star Rating Selected
+Product added to basket
+Quantity increase failed: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001005a8c40 cxxbridge1$str$ptr + 3221216
+1   chromedriver                        0x00000001005a0b1c cxxbridge1$str$ptr + 3188156
+2   chromedriver                        0x00000001000638f4 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 75152
+3   chromedriver                        0x00000001000abff8 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 371860
+4   chromedriver                        0x00000001000eb6f4 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 631696
+5   chromedriver                        0x00000001000a19c0 _RNvCsiKAbIcglKMQ_7___rustc35___rust_no_alloc_shim_is_unstable_v2 + 329308
+6   chromedriver                        0x0000000100566b70 cxxbridge1$str$ptr + 2950672
+7   chromedriver                        0x000000010056a2c8 cxxbridge1$str$ptr + 2964840
+8   chromedriver                        0x000000010054b8a8 cxxbridge1$str$ptr + 2839368
+9   chromedriver                        0x000000010056ab48 cxxbridge1$str$ptr + 2967016
+10  chromedriver                        0x000000010053c3d4 cxxbridge1$str$ptr + 2776692
+11  chromedriver                        0x000000010058f7ac cxxbridge1$str$ptr + 3117644
+12  chromedriver                        0x000000010058f90c cxxbridge1$str$ptr + 3117996
+13  chromedriver                        0x00000001005a0774 cxxbridge1$str$ptr + 3187220
+14  libsystem_pthread.dylib             0x000000018d273c58 _pthread_start + 136
+15  libsystem_pthread.dylib             0x000000018d26ec1c thread_start + 8
+
+Basket opened
+Checkout opened

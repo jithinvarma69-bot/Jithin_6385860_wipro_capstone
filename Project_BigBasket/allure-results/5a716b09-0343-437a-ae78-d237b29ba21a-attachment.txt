@@ -1,0 +1,17 @@
+[32mINFO    [0m WDM:logger.py:11 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:11 Driver [/Users/jithinvarma/.wdm/drivers/chromedriver/mac-arm64/148.0.7778.178/chromedriver-mac-arm64/chromedriver] found in cache by browser version
+[32mINFO    [0m root:test_1_end_to_end.py:71 ===== END TO END TEST STARTED =====
+[32mINFO    [0m root:test_1_end_to_end.py:92 Website Opened Successfully
+[32mINFO    [0m root:test_1_end_to_end.py:109 Login Button Clicked
+[32mINFO    [0m root:test_1_end_to_end.py:128 Mobile Number Entered
+[32mINFO    [0m root:test_1_end_to_end.py:138 Continue Button Clicked
+[32mINFO    [0m root:test_1_end_to_end.py:157 OTP Verified Successfully
+[32mINFO    [0m root:test_1_end_to_end.py:178 Pharmacy Page Opened Successfully
+[32mINFO    [0m root:test_1_end_to_end.py:197 Brand Filter Selected
+[32mINFO    [0m root:test_1_end_to_end.py:217 Price Filter Selected
+[32mINFO    [0m root:test_1_end_to_end.py:236 Rating Filter Selected
+[32mINFO    [0m root:test_1_end_to_end.py:253 Product Added To Basket
+[32mINFO    [0m root:test_1_end_to_end.py:270 Quantity Increased
+[32mINFO    [0m root:test_1_end_to_end.py:289 Basket Opened Successfully
+[32mINFO    [0m root:test_1_end_to_end.py:308 Payment Page Opened Successfully
+[32mINFO    [0m root:test_1_end_to_end.py:312 ===== END TO END TEST PASSED =====
