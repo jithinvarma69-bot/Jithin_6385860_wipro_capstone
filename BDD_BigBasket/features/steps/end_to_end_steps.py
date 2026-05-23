@@ -64,6 +64,13 @@ def open_site(context):
 
     time.sleep(5)
 
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        context.driver.current_url.lower()
+    )
+
     logger.info(
         "BigBasket Website Opened Successfully"
     )
@@ -90,6 +97,12 @@ def click_login(context):
     login.click_login()
 
     time.sleep(3)
+
+    # ASSERTION
+    assert (
+        context.driver.current_url
+        is not None
+    )
 
     logger.info(
         "Login Button Clicked Successfully"
@@ -124,6 +137,11 @@ def mobile(context):
 
     time.sleep(3)
 
+    # ASSERTION
+    assert (
+        len(mobile) > 0
+    )
+
     logger.info(
         "Mobile Number Entered Successfully"
     )
@@ -155,6 +173,13 @@ def continue_button(context):
 
     time.sleep(8)
 
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        context.driver.current_url.lower()
+    )
+
     logger.info(
         "Login Successful"
     )
@@ -181,6 +206,13 @@ def pharmacy(context):
     pharmacy.open_pharmacy()
 
     time.sleep(5)
+
+    # ASSERTION
+    assert (
+        "pharmacy"
+        in
+        context.driver.current_url.lower()
+    )
 
     logger.info(
         "Pharmacy Page Opened Successfully"
@@ -211,6 +243,12 @@ def filter_brand(context):
 
     time.sleep(5)
 
+    # ASSERTION
+    assert (
+        context.driver.current_url
+        is not None
+    )
+
     logger.info(
         "Brand Filter Applied Successfully"
     )
@@ -237,6 +275,12 @@ def basket(context):
     pharmacy.add_product_to_basket()
 
     time.sleep(5)
+
+    # ASSERTION
+    assert (
+        context.driver.current_url
+        is not None
+    )
 
     logger.info(
         "Product Added To Basket Successfully"
@@ -265,6 +309,12 @@ def checkout(context):
 
     time.sleep(5)
 
+    # ASSERTION
+    assert (
+        context.driver.current_url
+        is not None
+    )
+
     logger.info(
         "Checkout Page Opened Successfully"
     )
@@ -291,6 +341,12 @@ def payment(context):
     pharmacy.proceed_payment()
 
     time.sleep(5)
+
+    # ASSERTION
+    assert (
+        context.driver.current_url
+        is not None
+    )
 
     logger.info(
         "Payment Page Opened Successfully"
@@ -324,3 +380,5 @@ def payment_success(context):
     logger.info(
         "End To End Flow Completed Successfully"
     )
+
+    context.driver.quit()

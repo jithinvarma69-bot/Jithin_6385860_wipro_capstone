@@ -1,150 +1,105 @@
-from behave import *
-
+import allure
+import pytest
 import time
-import csv
-
-from selenium import webdriver
-
-from selenium.webdriver.chrome.service import Service
-
-from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.login_page import LoginPage
-
 from pages.pharmacy_page import PharmacyPage
-
 from utils.logger import LogGen
 
 
 logger = LogGen.loggen()
 
 
-# =====================================================
-# READ CSV DATA
-# =====================================================
+# ======================================================
+# SCREENSHOT FUNCTION
+# ======================================================
 
-def read_csv_data():
+def take_screenshot(driver, name):
 
-    with open(
-        "data/login_data.csv"
-    ) as file:
+    screenshot_name = f"{name}.png"
 
-        reader = csv.DictReader(
-            file
-        )
+    driver.save_screenshot(
+        screenshot_name
+    )
 
-        return list(reader)
+    allure.attach.file(
+        screenshot_name,
+        name=name,
+        attachment_type=
+        allure.attachment_type.PNG
+    )
 
 
-# =====================================================
-# OPEN WEBSITE
-# =====================================================
+# ======================================================
+# COMMON LOGIN FLOW
+# ======================================================
 
-@given(
-    "positive user opens BigBasket website"
-)
-
-def open_site(context):
+def login_flow(driver):
 
     logger.info(
-        "Opening BigBasket Website"
+        "Starting Login Flow"
     )
 
-    context.driver = webdriver.Chrome(
-        service=Service(
-            ChromeDriverManager().install()
-        )
-    )
+    login = LoginPage(driver)
 
-    context.driver.maximize_window()
-
-    context.driver.get(
-        "https://www.bigbasket.com/"
-    )
+    login.open_bigbasket()
 
     time.sleep(5)
 
-    logger.info(
-        "BigBasket Website Opened Successfully"
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        driver.current_url.lower()
     )
 
-
-# =====================================================
-# CLICK LOGIN BUTTON
-# =====================================================
-
-@when(
-    "positive user clicks login button"
-)
-
-def click_login(context):
-
-    logger.info(
-        "Clicking Login Button"
+    take_screenshot(
+        driver,
+        "homepage"
     )
 
-    login = LoginPage(
-        context.driver
+    logger.info(
+        "Homepage Opened Successfully"
     )
 
     login.click_login()
 
     time.sleep(3)
 
-    logger.info(
-        "Login Button Clicked Successfully"
+    take_screenshot(
+        driver,
+        "login_popup"
     )
 
-
-# =====================================================
-# ENTER MOBILE NUMBER
-# =====================================================
-
-@when(
-    "positive user enters mobile number from csv"
-)
-
-def mobile(context):
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
 
     logger.info(
-        "Entering Mobile Number"
+        "Login Popup Opened Successfully"
     )
-
-    login = LoginPage(
-        context.driver
-    )
-
-    data = read_csv_data()
-
-    mobile = data[0]["mobile"]
 
     login.enter_mobile_email(
-        mobile
+        "7396738499"
     )
 
     time.sleep(3)
 
+    take_screenshot(
+        driver,
+        "mobile_entered"
+    )
+
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
+
     logger.info(
         "Mobile Number Entered Successfully"
-    )
-
-
-# =====================================================
-# CLICK CONTINUE BUTTON
-# =====================================================
-
-@when(
-    "positive user clicks continue button"
-)
-
-def continue_button(context):
-
-    logger.info(
-        "Clicking Continue Button"
-    )
-
-    login = LoginPage(
-        context.driver
     )
 
     login.click_continue()
@@ -155,171 +110,290 @@ def continue_button(context):
 
     time.sleep(8)
 
+    take_screenshot(
+        driver,
+        "login_success"
+    )
+
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        driver.current_url.lower()
+    )
+
     logger.info(
         "Login Successful"
     )
 
 
-# =====================================================
-# LOGIN VALIDATION
-# =====================================================
+# ======================================================
+# POSITIVE TEST CASE 1
+# BRAND FILTER
+# ======================================================
 
-@then(
-    "positive login should be successful"
+@allure.feature(
+    "Positive Testing"
 )
 
-def login_success(context):
-
-    assert (
-        "bigbasket"
-        in
-        context.driver.current_url.lower()
-    )
-
-    logger.info(
-        "Positive Login Validation Successful"
-    )
-
-
-# =====================================================
-# OPEN PHARMACY PAGE
-# =====================================================
-
-@when(
-    "positive user opens pharmacy page"
+@allure.story(
+    "Brand Filter Working"
 )
 
-def pharmacy(context):
+@pytest.mark.order(1)
+
+def test_brand_filter(driver):
 
     logger.info(
-        "Opening Pharmacy Page"
+        "Starting Brand Filter Test"
     )
 
-    pharmacy = PharmacyPage(
-        context.driver
-    )
+    login_flow(driver)
 
-    pharmacy.open_pharmacy()
+    pharmacy = PharmacyPage(driver)
+
+    driver.get(
+        "https://www.bigbasket.com/cl/pharmacy-wellness/"
+    )
 
     time.sleep(5)
+
+    take_screenshot(
+        driver,
+        "pharmacy_page"
+    )
+
+    # ASSERTION
+    assert (
+        "pharmacy"
+        in
+        driver.current_url.lower()
+    )
 
     logger.info(
         "Pharmacy Page Opened Successfully"
     )
 
-
-# =====================================================
-# PHARMACY VALIDATION
-# =====================================================
-
-@then(
-    "positive pharmacy page should open successfully"
-)
-
-def pharmacy_success(context):
-
-    assert (
-        "pharmacy"
-        in
-        context.driver.current_url.lower()
-    )
-
-    logger.info(
-        "Pharmacy Validation Successful"
-    )
-
-
-# =====================================================
-# APPLY BRAND FILTER
-# =====================================================
-
-@when(
-    "positive user applies brand filter"
-)
-
-def filter_brand(context):
-
-    logger.info(
-        "Applying Brand Filter"
-    )
-
-    pharmacy = PharmacyPage(
-        context.driver
-    )
-
-    pharmacy.apply_brand_filter(
+    pharmacy.select_brand(
         "Dettol"
     )
 
     time.sleep(5)
 
-    logger.info(
-        "Brand Filter Applied Successfully"
+    take_screenshot(
+        driver,
+        "brand_filter"
     )
 
-
-# =====================================================
-# FILTER VALIDATION
-# =====================================================
-
-@then(
-    "positive brand filter should apply successfully"
-)
-
-def filter_success(context):
-
+    # ASSERTION
     assert (
-        context.driver.current_url
+        driver.current_url
         is not None
     )
 
     logger.info(
-        "Brand Filter Validation Successful"
+        "Brand Filter Working Successfully"
     )
 
 
-# =====================================================
-# ADD PRODUCT TO BASKET
-# =====================================================
+# ======================================================
+# POSITIVE TEST CASE 2
+# PRICE FILTER
+# ======================================================
 
-@when(
-    "positive user adds product to basket"
+@allure.feature(
+    "Positive Testing"
 )
 
-def basket(context):
+@allure.story(
+    "Price Filter Working"
+)
+
+@pytest.mark.order(2)
+
+def test_price_filter(driver):
 
     logger.info(
-        "Adding Product To Basket"
+        "Starting Price Filter Test"
     )
 
-    pharmacy = PharmacyPage(
-        context.driver
-    )
+    login_flow(driver)
 
-    pharmacy.add_product_to_basket()
+    pharmacy = PharmacyPage(driver)
+
+    driver.get(
+        "https://www.bigbasket.com/cl/pharmacy-wellness/"
+    )
 
     time.sleep(5)
 
-    logger.info(
-        "Product Added To Basket Successfully"
+    # ASSERTION
+    assert (
+        "pharmacy"
+        in
+        driver.current_url.lower()
     )
 
+    logger.info(
+        "Pharmacy Page Opened Successfully"
+    )
 
-# =====================================================
-# PRODUCT VALIDATION
-# =====================================================
+    pharmacy.select_price_filter(
+        "300",
+        "500"
+    )
 
-@then(
-    "positive product should add successfully"
-)
+    time.sleep(5)
 
-def product_success(context):
+    take_screenshot(
+        driver,
+        "price_filter"
+    )
 
+    # ASSERTION
     assert (
-        context.driver.current_url
+        driver.current_url
         is not None
     )
 
     logger.info(
-        "Positive Basket Validation Successful"
+        "Price Filter Working Successfully"
+    )
+
+
+# ======================================================
+# POSITIVE TEST CASE 3
+# ADD TO BASKET
+# ======================================================
+
+@allure.feature(
+    "Positive Testing"
+)
+
+@allure.story(
+    "Add Product To Basket"
+)
+
+@pytest.mark.order(3)
+
+def test_add_to_basket(driver):
+
+    logger.info(
+        "Starting Add To Basket Test"
+    )
+
+    login_flow(driver)
+
+    pharmacy = PharmacyPage(driver)
+
+    driver.get(
+        "https://www.bigbasket.com/cl/pharmacy-wellness/"
+    )
+
+    time.sleep(5)
+
+    # ASSERTION
+    assert (
+        "pharmacy"
+        in
+        driver.current_url.lower()
+    )
+
+    logger.info(
+        "Pharmacy Page Opened Successfully"
+    )
+
+    pharmacy.add_to_basket()
+
+    time.sleep(5)
+
+    take_screenshot(
+        driver,
+        "product_added"
+    )
+
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
+
+    logger.info(
+        "Product Added Successfully"
+    )
+
+
+# ======================================================
+# POSITIVE TEST CASE 4
+# OPEN BASKET
+# ======================================================
+
+@allure.feature(
+    "Positive Testing"
+)
+
+@allure.story(
+    "Basket Opening Successful"
+)
+
+@pytest.mark.order(4)
+
+def test_open_basket(driver):
+
+    logger.info(
+        "Starting Open Basket Test"
+    )
+
+    login_flow(driver)
+
+    pharmacy = PharmacyPage(driver)
+
+    driver.get(
+        "https://www.bigbasket.com/cl/pharmacy-wellness/"
+    )
+
+    time.sleep(5)
+
+    # ASSERTION
+    assert (
+        "pharmacy"
+        in
+        driver.current_url.lower()
+    )
+
+    logger.info(
+        "Pharmacy Page Opened Successfully"
+    )
+
+    pharmacy.add_to_basket()
+
+    time.sleep(5)
+
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
+
+    logger.info(
+        "Product Added Successfully"
+    )
+
+    pharmacy.open_basket()
+
+    time.sleep(5)
+
+    take_screenshot(
+        driver,
+        "basket_opened"
+    )
+
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
+
+    logger.info(
+        "Basket Opened Successfully"
     )

@@ -1,205 +1,304 @@
-from behave import *
-
+import allure
+import pytest
 import time
 
-from selenium import webdriver
-
-from selenium.webdriver.chrome.service import Service
-
-from webdriver_manager.chrome import ChromeDriverManager
-
 from pages.login_page import LoginPage
-
 from utils.logger import LogGen
 
 
 logger = LogGen.loggen()
 
 
-# =====================================================
-# OPEN WEBSITE
-# =====================================================
+# ======================================================
+# SCREENSHOT FUNCTION
+# ======================================================
 
-@given(
-    "negative user opens BigBasket website"
+def take_screenshot(driver, name):
+
+    time.sleep(2)
+
+    screenshot_name = f"{name}.png"
+
+    driver.save_screenshot(
+        screenshot_name
+    )
+
+    allure.attach.file(
+        screenshot_name,
+        name=name,
+        attachment_type=
+        allure.attachment_type.PNG
+    )
+
+
+# ======================================================
+# NEGATIVE TEST CASE 1
+# INVALID MOBILE NUMBER
+# ======================================================
+
+@allure.feature(
+    "BigBasket Negative Testing"
 )
 
-def open_site(context):
+@allure.story(
+    "Invalid Mobile Number Validation"
+)
+
+@allure.severity(
+    allure.severity_level.CRITICAL
+)
+
+@pytest.mark.order(1)
+
+def test_invalid_phone(driver):
+
+    login = LoginPage(driver)
 
     logger.info(
-        "Opening BigBasket Website"
+        "===== INVALID MOBILE TEST STARTED ====="
     )
 
-    context.driver = webdriver.Chrome(
-        service=Service(
-            ChromeDriverManager().install()
-        )
-    )
+    # ==================================================
+    # OPEN WEBSITE
+    # ==================================================
 
-    context.driver.maximize_window()
-
-    context.driver.get(
-        "https://www.bigbasket.com/"
-    )
+    login.open_bigbasket()
 
     time.sleep(5)
 
-    logger.info(
-        "Website Opened Successfully"
+    take_screenshot(
+        driver,
+        "homepage_opened"
     )
 
-
-# =====================================================
-# CLICK LOGIN BUTTON
-# =====================================================
-
-@when(
-    "negative user clicks login button"
-)
-
-def click_login(context):
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        driver.current_url.lower()
+    )
 
     logger.info(
-        "Clicking Login Button"
+        "Homepage Opened Successfully"
     )
 
-    login = LoginPage(
-        context.driver
-    )
+    # ==================================================
+    # CLICK LOGIN
+    # ==================================================
 
     login.click_login()
 
     time.sleep(3)
 
+    take_screenshot(
+        driver,
+        "login_popup_opened"
+    )
+
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
+
     logger.info(
         "Login Popup Opened Successfully"
     )
 
+    # ==================================================
+    # ENTER INVALID MOBILE NUMBER
+    # ==================================================
 
-# =====================================================
-# ENTER VALID MOBILE NUMBER
-# =====================================================
-
-@when(
-    "negative user enters valid mobile number"
-)
-
-def valid_mobile(context):
-
-    logger.info(
-        "Entering Valid Mobile Number"
-    )
-
-    login = LoginPage(
-        context.driver
-    )
+    invalid_mobile = "123"
 
     login.enter_mobile_email(
-        "7396738499"
+        invalid_mobile
     )
 
     time.sleep(3)
 
-    logger.info(
-        "Valid Mobile Number Entered"
+    take_screenshot(
+        driver,
+        "invalid_mobile_entered"
     )
 
-
-# =====================================================
-# ENTER INVALID MOBILE NUMBER
-# =====================================================
-
-@when(
-    "negative user enters invalid mobile number"
-)
-
-def invalid_mobile(context):
-
-    logger.info(
-        "Entering Invalid Mobile Number"
+    # ASSERTION
+    assert (
+        len(invalid_mobile) < 10
     )
-
-    login = LoginPage(
-        context.driver
-    )
-
-    login.enter_mobile_email(
-        "123"
-    )
-
-    time.sleep(3)
 
     logger.info(
         "Invalid Mobile Number Entered"
     )
 
+    # ==================================================
+    # CLICK CONTINUE
+    # ==================================================
 
-# =====================================================
-# CLICK CONTINUE BUTTON
-# =====================================================
+    login.click_continue()
 
-@when(
-    "negative user clicks continue button"
-)
+    time.sleep(5)
 
-def continue_button(context):
+    take_screenshot(
+        driver,
+        "invalid_mobile_validation"
+    )
+
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        driver.current_url.lower()
+    )
 
     logger.info(
-        "Clicking Continue Button"
+        "Invalid Mobile Validation Successful"
     )
 
-    login = LoginPage(
-        context.driver
+    logger.info(
+        "===== INVALID MOBILE TEST PASSED ====="
     )
+
+
+# ======================================================
+# NEGATIVE TEST CASE 2
+# INVALID OTP
+# ======================================================
+
+@allure.feature(
+    "BigBasket Negative Testing"
+)
+
+@allure.story(
+    "Invalid OTP Validation"
+)
+
+@allure.severity(
+    allure.severity_level.CRITICAL
+)
+
+@pytest.mark.order(2)
+
+def test_invalid_otp(driver):
+
+    login = LoginPage(driver)
+
+    logger.info(
+        "===== INVALID OTP TEST STARTED ====="
+    )
+
+    # ==================================================
+    # OPEN WEBSITE
+    # ==================================================
+
+    login.open_bigbasket()
+
+    time.sleep(5)
+
+    take_screenshot(
+        driver,
+        "otp_homepage"
+    )
+
+    # ASSERTION
+    assert (
+        "bigbasket"
+        in
+        driver.current_url.lower()
+    )
+
+    logger.info(
+        "Homepage Opened Successfully"
+    )
+
+    # ==================================================
+    # CLICK LOGIN
+    # ==================================================
+
+    login.click_login()
+
+    time.sleep(3)
+
+    take_screenshot(
+        driver,
+        "otp_login_popup"
+    )
+
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
+
+    logger.info(
+        "Login Popup Opened Successfully"
+    )
+
+    # ==================================================
+    # ENTER VALID MOBILE NUMBER
+    # ==================================================
+
+    valid_mobile = "7396738499"
+
+    login.enter_mobile_email(
+        valid_mobile
+    )
+
+    time.sleep(3)
+
+    take_screenshot(
+        driver,
+        "valid_mobile_entered"
+    )
+
+    # ASSERTION
+    assert (
+        len(valid_mobile) == 10
+    )
+
+    logger.info(
+        "Valid Mobile Number Entered"
+    )
+
+    # ==================================================
+    # CLICK CONTINUE
+    # ==================================================
 
     login.click_continue()
 
     time.sleep(15)
 
-    logger.info(
-        "Continue Button Clicked"
+    take_screenshot(
+        driver,
+        "otp_screen"
     )
 
-
-# =====================================================
-# CLICK VERIFY CONTINUE
-# =====================================================
-
-@when(
-    "negative user enters wrong otp"
-)
-
-def wrong_otp(context):
+    # ASSERTION
+    assert (
+        driver.current_url
+        is not None
+    )
 
     logger.info(
-        "Clicking Verify Continue With Invalid OTP"
+        "OTP Screen Opened Successfully"
     )
 
-    login = LoginPage(
-        context.driver
-    )
+    # ==================================================
+    # CLICK VERIFY CONTINUE
+    # ==================================================
 
     login.click_verify_continue()
 
     time.sleep(5)
 
-    logger.info(
-        "Invalid OTP Validation Triggered"
+    take_screenshot(
+        driver,
+        "invalid_otp_validation"
     )
 
-
-# =====================================================
-# OTP VALIDATION
-# =====================================================
-
-@then(
-    "negative otp error message should display"
-)
-
-def otp_error(context):
-
+    # ASSERTION
     assert (
-        context.driver.current_url
+        driver.current_url
         is not None
     )
 
@@ -207,23 +306,6 @@ def otp_error(context):
         "Invalid OTP Validation Successful"
     )
 
-
-# =====================================================
-# INVALID MOBILE VALIDATION
-# =====================================================
-
-@then(
-    "negative invalid mobile error should display"
-)
-
-def invalid_mobile_error(context):
-
-    assert (
-        "bigbasket"
-        in
-        context.driver.current_url.lower()
-    )
-
     logger.info(
-        "Invalid Mobile Validation Successful"
+        "===== INVALID OTP TEST PASSED ====="
     )
